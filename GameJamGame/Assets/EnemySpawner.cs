@@ -15,6 +15,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
 
+    [Header("Enemy Type Settings")]
+    [SerializeField] private int fastEnemyStartWave = 3;
+    [SerializeField] private int miniBossStartWave = 1;
+    [SerializeField] private float fastEnemySpawnChance = 0.3f;
+    [SerializeField] private int miniBossPerWave = 1;
+
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
@@ -22,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
+    private int miniBossesLeftToSpawn;
     private bool isSpawning = false;
 
     private void Awake()
@@ -64,6 +71,15 @@ public class EnemySpawner : MonoBehaviour
 
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
+
+        if (currentWave >= miniBossStartWave)
+        {
+            miniBossesLeftToSpawn = miniBossPerWave;
+        }
+        else
+        {
+            miniBossesLeftToSpawn = 0;
+        }
     }
 
     private void EndWave()
@@ -77,6 +93,30 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[0];
+
+        if (miniBossesLeftToSpawn > 0 && enemiesLeftToSpawn <= miniBossesLeftToSpawn)
+        {
+            if (enemyPrefabs.Length > 2 && enemyPrefabs[2] != null)
+            {
+                prefabToSpawn = enemyPrefabs[2];
+                miniBossesLeftToSpawn--;
+                Debug.Log("Spawning MiniBoss");
+            }
+
+        }
+        else if (currentWave >= fastEnemyStartWave && Random.value < fastEnemySpawnChance)
+        {
+            if (enemyPrefabs.Length > 1 && enemyPrefabs[1] != null)
+            {
+                prefabToSpawn = enemyPrefabs[1];
+                Debug.Log("Spawning Fast Enemy");
+            }
+        }
+        else
+        {
+            Debug.Log("Spawning Regular Enemy");
+        }
+      
         Instantiate(prefabToSpawn, EnemyManager.main.startPoint.position, Quaternion.identity);
     }
 
