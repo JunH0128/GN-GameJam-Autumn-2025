@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Enemy Type Settings")]
     [SerializeField] private int fastEnemyStartWave = 3;
-    [SerializeField] private int miniBossStartWave = 1;
+    [SerializeField] private int BossStartWave = 1;
     [SerializeField] private float fastEnemySpawnChance = 0.3f;
     [SerializeField] private int miniBossPerWave = 1;
 
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
-    private int miniBossesLeftToSpawn;
+    private int BossesLeftToSpawn;
     private bool isSpawning = false;
 
     private void Awake()
@@ -72,13 +72,13 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
 
-        if (currentWave >= miniBossStartWave)
+        if (currentWave >= BossStartWave)
         {
-            miniBossesLeftToSpawn = miniBossPerWave;
+            BossesLeftToSpawn = miniBossPerWave;
         }
         else
         {
-            miniBossesLeftToSpawn = 0;
+            BossesLeftToSpawn = 0;
         }
     }
 
@@ -94,12 +94,12 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject prefabToSpawn = enemyPrefabs[0];
 
-        if (miniBossesLeftToSpawn > 0 && enemiesLeftToSpawn <= miniBossesLeftToSpawn)
+        if (BossesLeftToSpawn > 0 && enemiesLeftToSpawn <= BossesLeftToSpawn)
         {
             if (enemyPrefabs.Length > 2 && enemyPrefabs[2] != null)
             {
                 prefabToSpawn = enemyPrefabs[2];
-                miniBossesLeftToSpawn--;
+                BossesLeftToSpawn--;
                 Debug.Log("Spawning MiniBoss");
             }
 

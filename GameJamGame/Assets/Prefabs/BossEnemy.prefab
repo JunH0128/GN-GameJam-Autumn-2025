@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5861170060366980405}
   - component: {fileID: 2695811257893863542}
   - component: {fileID: 3532374086378419484}
-  m_Layer: 0
-  m_Name: MiniBossEnemy
+  m_Layer: 6
+  m_Name: BossEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1833116771190228570}
   - component: {fileID: 5244042088991776945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

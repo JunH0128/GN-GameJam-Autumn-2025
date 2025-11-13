@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1622835060250167262}
   - component: {fileID: 5080993702296111241}
   - component: {fileID: 2800146526904074588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FastEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8414843213168319284}
   - component: {fileID: 7209048312058576203}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
