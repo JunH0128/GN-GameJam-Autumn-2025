@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesLeftToSpawn;
     private int BossesLeftToSpawn;
     private bool isSpawning = false;
+    private bool waitingForPlayerToStart = false;
 
     private void Awake()
     {
@@ -38,8 +39,18 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartWave());
+        waitingForPlayerToStart = true;
     }
+
+    public void StartNextWave()
+    {
+        if (waitingForPlayerToStart && !isSpawning)
+        {
+
+        waitingForPlayerToStart = false;
+        StartCoroutine(StartWave());
+        }
+    }   
 
     private void Update()
     {
@@ -87,7 +98,17 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        StartCoroutine(StartWave());
+        waitingForPlayerToStart = true;
+    }
+
+    public int GetCurrentWave()
+    {
+        return currentWave;
+    }
+
+    public bool IsWaitingToStart()
+    {
+        return waitingForPlayerToStart;
     }
 
     private void SpawnEnemy()
