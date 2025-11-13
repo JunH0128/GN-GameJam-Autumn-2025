@@ -7,10 +7,34 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager main;
     public Transform startPoint;
     public Transform[] checkPoints;
+
+    public int currency;
     
 
     void Awake()
     {
         main = this;
+    }
+
+    private void Start()
+    {
+        currency = 100;
+    }
+
+    public void IncreaseCurrency(int amount)
+    {
+        currency += amount;
+    }
+
+    public void SpendCurrency(int amount)
+    {
+        if (amount <= currency)
+        {
+            //buy item
+        }
+        else
+        {
+            Debug.Log("you do not have enough to buy this item");
+        }
     }
 }
