@@ -14,7 +14,7 @@ public class Turret : MonoBehaviour
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float bps = 1f; // Bullet per second
-    //[SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float rotationSpeed = 5f;
 
     private Transform target;
     private float timeUntilFire;
@@ -88,20 +88,19 @@ public class Turret : MonoBehaviour
 
     private void RotateTowardsTarget()
     {
-        if (target == null) return;
+        //if (target == null) return;
 
         // Calculate direction to target
-        Vector2 direction = (target.position - turretRotationPoint.position).normalized;
+        //Vector2 direction = (target.position - turretRotationPoint.position).normalized;
         
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         // angle -= 90f; // For sprites pointing up
         // angle += 90f; // For sprites pointing down
         
-        Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         
         turretRotationPoint.rotation = targetRotation;
-        
-        // turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void OnDrawGizmosSelected()
