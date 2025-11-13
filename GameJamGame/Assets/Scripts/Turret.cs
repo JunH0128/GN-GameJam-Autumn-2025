@@ -21,7 +21,12 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        FindTarget();
+        if (target == null)
+        {
+            FindTarget();
+            return;
+        }
+
 
         if (target != null)
         {
@@ -34,6 +39,7 @@ public class Turret : MonoBehaviour
         {
             Debug.Log("No target found");
         }
+        
 
         if (!CheckTargetIsInRange())
         {
