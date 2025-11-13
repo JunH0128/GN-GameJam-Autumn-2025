@@ -26,15 +26,17 @@ public class EnemyManager : MonoBehaviour
         currency += amount;
     }
 
-    public void SpendCurrency(int amount)
+    public bool SpendCurrency(int amount)
     {
         if (amount <= currency)
         {
-            //buy item
+            currency -= amount;
+            return true;
         }
         else
         {
             Debug.Log("you do not have enough to buy this item");
+            return false;
         }
     }
 }
