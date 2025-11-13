@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager main;
+    public Transform startPoint;
     public Transform[] checkPoints;
     
 

@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 
             if (checkpointIndex >= EnemyManager.main.checkPoints.Length)
             {
+                EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
             }
 
