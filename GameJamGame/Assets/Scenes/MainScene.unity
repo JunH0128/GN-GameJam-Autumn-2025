@@ -2364,12 +2364,12 @@ MonoBehaviour:
   - {fileID: 6985805757253745941, guid: f7c3bc31fe6886b48a91e1b826649f25, type: 3}
   - {fileID: 2003261236600174013, guid: 6dcf97de6a4689e45bbef9e2e0a6fc67, type: 3}
   baseEnemies: 8
-  enemiesPerSecond: 0.5
+  enemiesPerSecond: 0.8
   timeBetweenWaves: 2
   difficultyScalingFactor: 0.75
-  fastEnemyStartWave: 3
+  fastEnemyStartWave: 1
   BossStartWave: 1
-  fastEnemySpawnChance: 0.3
+  fastEnemySpawnChance: 0.5
   miniBossPerWave: 1
 --- !u!114 &980553158
 MonoBehaviour:

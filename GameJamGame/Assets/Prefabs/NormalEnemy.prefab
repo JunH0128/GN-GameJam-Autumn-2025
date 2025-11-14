@@ -591,8 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b448ff5a4da7ef24db5fd472cefbb805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 1
-  damageToBase: 1
+  movSpeed: 2
+  damageToBase: 2
 --- !u!114 &1196602928234961187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bd519656d557d4882afd42aed19fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 2
+  hitPoints: 15
   currencyWorth: 50
 --- !u!58 &2875026867614822861
 CircleCollider2D:

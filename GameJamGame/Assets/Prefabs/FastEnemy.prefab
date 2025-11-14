@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movSpeed: 1.8
+  damageToBase: 1
 --- !u!114 &2800146526904074588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 1
+  currencyWorth: 50
 --- !u!1 &8318361695452844036
 GameObject:
   m_ObjectHideFlags: 0
