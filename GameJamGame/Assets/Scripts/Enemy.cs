@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
             if (checkpointIndex >= EnemyManager.main.checkPoints.Length)
             {
 
-                Destroy(gameObject);
+                ReachedBase();
                      
             }
 
@@ -57,19 +57,20 @@ public class Enemy : MonoBehaviour
         rb.velocity = direction * movSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void ReachedBase()
     {
-        if (collision.CompareTag("Base"))
-        {
-            BaseHealth baseHealth = collision.GetComponent<BaseHealth>();
-            if (baseHealth != null)
-            {
-                baseHealth.TakeDamage(damageToBase);
-            }
-
-            Destroy(gameObject);
-        }
         
+        BaseHealth baseHealth = FindObjectOfType<BaseHealth>();
+        if (baseHealth != null)
+        {
+            baseHealth.TakeDamage(damageToBase);
+        }
+
+        
+        EnemySpawner.onEnemyDestroy.Invoke();
+        
+       
+        Destroy(gameObject);
     }
 
 
