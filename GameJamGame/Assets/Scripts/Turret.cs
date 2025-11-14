@@ -68,7 +68,6 @@ public class Turret : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, targetingRange, enemyMask);
         
-        Debug.Log($"Found {colliders.Length} enemies in range");
 
         if (colliders.Length > 0)
         {
