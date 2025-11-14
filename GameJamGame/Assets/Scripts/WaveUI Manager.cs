@@ -5,14 +5,14 @@ using TMPro;
 public class WaveUIManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private EnemySpawner enemySpawner;
-    [SerializeField] private Button startWaveButton;
-    [SerializeField] private TextMeshProUGUI waveText;
-    [SerializeField] private TextMeshProUGUI buttonText;
+    [SerializeField] private EnemySpawner enemySpawner; // Reference to the EnemySpawner script
+    [SerializeField] private Button startWaveButton; // Reference to the start wave button
+    [SerializeField] private TextMeshProUGUI waveText; // Reference to the wave text UI element
+    [SerializeField] private TextMeshProUGUI buttonText; // Reference to the button text UI element
 
     private void Start()
     {
-        // Make sure button is set up
+        
         if (startWaveButton != null)
         {
             startWaveButton.onClick.AddListener(OnStartWaveClicked);
@@ -21,11 +21,13 @@ public class WaveUIManager : MonoBehaviour
         UpdateUI();
     }
 
+    // Update is called once per frame
     private void Update()
     {
         UpdateUI();
     }
 
+    // Called when the start wave button is clicked
     private void OnStartWaveClicked()
     {
         if (enemySpawner != null)
@@ -34,11 +36,13 @@ public class WaveUIManager : MonoBehaviour
         }
     }
 
+
+    // Updates the UI elements based on the current wave state
     private void UpdateUI()
     {
         if (enemySpawner == null) return;
 
-        // Update wave text
+       
         if (waveText != null)
         {
             if (enemySpawner.IsWaitingToStart())
@@ -51,12 +55,12 @@ public class WaveUIManager : MonoBehaviour
             }
         }
 
-        // Show/hide button based on wave state
+        // Update start wave button visibility and text
         if (startWaveButton != null)
         {
             startWaveButton.gameObject.SetActive(enemySpawner.IsWaitingToStart());
             
-            // Update button text
+            
             if (buttonText != null)
             {
                 buttonText.text = "Start Wave ";

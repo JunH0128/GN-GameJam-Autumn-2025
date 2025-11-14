@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float movSpeed = 2f;
+
+    [Header("Base Damage Settings")]
+    [SerializeField] private int damageToBase = 1;
+
+
     private Rigidbody2D rb;
     private Transform checkpoint;
     private int checkpointIndex = 0;
@@ -32,8 +38,9 @@ public class Enemy : MonoBehaviour
 
             if (checkpointIndex >= EnemyManager.main.checkPoints.Length)
             {
-                EnemySpawner.onEnemyDestroy.Invoke();
+
                 Destroy(gameObject);
+                     
             }
 
 
@@ -49,5 +56,21 @@ public class Enemy : MonoBehaviour
 
         rb.velocity = direction * movSpeed;
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if (collision.CompareTag("Base"))
+        {
+            BaseHealth baseHealth = collision.GetComponent<BaseHealth>();
+            if (baseHealth != null)
+            {
+                baseHealth.TakeDamage(damageToBase);
+            }
+
+            Destroy(gameObject);
+        }
+        
+    }
+
+
 }
