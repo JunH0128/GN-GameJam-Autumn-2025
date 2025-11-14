@@ -31,6 +31,14 @@ public class Plot : MonoBehaviour
         if (tower != null) return;
 
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
+        
+        if (towerToBuild.cost > EnemyManager.main.currency)
+        {
+            return;
+        }
+
+        EnemyManager.main.SpendCurrency(towerToBuild.cost);
+
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
     }
 
