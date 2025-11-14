@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movSpeed: 1
-  damageToBase: 1
+  damageToBase: 20
 --- !u!114 &1196602928234961187
 MonoBehaviour:
   m_ObjectHideFlags: 0

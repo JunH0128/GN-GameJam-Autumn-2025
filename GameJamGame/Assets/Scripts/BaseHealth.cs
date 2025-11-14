@@ -11,6 +11,8 @@ public class BaseHealth : MonoBehaviour
     public static UnityEvent<int, int> onHealthChanged = new UnityEvent<int, int>();
     public static UnityEvent onBaseDestroyed = new UnityEvent();
 
+    private bool isDestroyed = false;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -19,6 +21,7 @@ public class BaseHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (isDestroyed) return;
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
