@@ -38,7 +38,9 @@ public class TowerShopManager : MonoBehaviour
     private TextMeshProUGUI[] allCostTexts;
     private Image[] allCardImages;
 
+
     [System.Serializable]
+    //  Data structure for tower information
     public class TowerData
     {
         public string name;
@@ -86,6 +88,7 @@ public class TowerShopManager : MonoBehaviour
         UpdateCurrencyDisplay();
     }
 
+    // Update the cost texts on the tower cards
     private void UpdateCostTexts()
     {
         for (int i = 0; i < allCostTexts.Length && i < towers.Length; i++)
@@ -97,6 +100,9 @@ public class TowerShopManager : MonoBehaviour
         }
     }
 
+
+
+    // Handle tower card selection
     private void SelectTower(int index, GameObject prefab, Button clickedButton)
     {
         if (index < 0 || index >= towers.Length || prefab == null)
@@ -143,6 +149,9 @@ public class TowerShopManager : MonoBehaviour
         Debug.Log("Selected: " + tower.name + " (Cost: $" + tower.cost + ")");
     }
 
+   
+    // Attempt to purchase the selected tower at the given position
+
     public bool TryPurchaseTower(Vector3 position)
     {
         if (selectedTower == null || selectedTowerPrefab == null)
@@ -182,6 +191,7 @@ public class TowerShopManager : MonoBehaviour
         return false;
     }
 
+    // Update the visual state of tower cards based on affordability and selection
     private void UpdateTowerCards()
     {
         
@@ -227,6 +237,8 @@ public class TowerShopManager : MonoBehaviour
         selectedButton = null;
     }
 
+
+     // Get tower cost by index
     public int GetTowerCost(int index)
     {
         if (index >= 0 && index < towers.Length)
