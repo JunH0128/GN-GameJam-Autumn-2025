@@ -28,18 +28,24 @@ public class Plot : MonoBehaviour
 
         private void OnMouseDown()
     {
-        if (tower != null) return;
+        if (tower != null)
+        {
+            Debug.Log("Plot already has a tower");
+            return;
+        }
 
-        Tower towerToBuild = BuildManager.main.GetSelectedTower();
         
-        if (towerToBuild.cost > EnemyManager.main.currency)
+        TowerShopManager shopManager = FindObjectOfType<TowerShopManager>();
+        if (shopManager == null)
         {
             return;
         }
 
-        EnemyManager.main.SpendCurrency(towerToBuild.cost);
-
-        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        if (shopManager.TryPurchaseTower(transform.position))
+        {
+            
+            sr.enabled = false;
+        }
     }
 
 
