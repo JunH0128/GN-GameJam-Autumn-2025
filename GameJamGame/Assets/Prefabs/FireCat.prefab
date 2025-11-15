@@ -59,7 +59,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.020892203}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6623032161527903699}
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -574293574, guid: 0b7fc0b57efbf014597da120b402aa46, type: 3}
+  m_Sprite: {fileID: -1760573361574759615, guid: d2e0856a2fd97db4a92e4913448f11f8, type: 3}
   m_Color: {r: 1, g: 0.52949154, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 7178289632338063678, guid: 54125894738a46544a5c638077aa5645, type: 3}
+  bulletPrefab: {fileID: 7178289632338063678, guid: c3c0b92180fe5694ea5a301a921d8bd4, type: 3}
   firingPoint: {fileID: 6891487014590987206}
   targetingRange: 2
   bps: 0.7
