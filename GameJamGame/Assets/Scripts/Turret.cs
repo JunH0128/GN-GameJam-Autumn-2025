@@ -92,7 +92,7 @@ public class Turret : MonoBehaviour
         // Calculate direction to target
         //Vector2 direction = (target.position - turretRotationPoint.position).normalized;
         
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg + 90f;
         // angle -= 90f; // For sprites pointing up
         // angle += 90f; // For sprites pointing down
         
