@@ -88,7 +88,7 @@ public class TowerShopManager : MonoBehaviour
         UpdateCurrencyDisplay();
     }
 
-    // Update the cost texts on the tower cards
+    // Update the cost texts on the tower cards NOT DONE 
     private void UpdateCostTexts()
     {
         for (int i = 0; i < allCostTexts.Length && i < towers.Length; i++)
