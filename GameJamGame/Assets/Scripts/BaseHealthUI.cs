@@ -40,7 +40,7 @@ public class BaseHealthUI : MonoBehaviour
 
         if (healthText != null)
         {
-            healthText.text = "Health: " + current;
+            healthText.text = current.ToString();
         }
     }
 
