@@ -49,10 +49,8 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 direction = (checkpoint.position - transform.position).normalized;
+         Vector2 direction = (checkpoint.position - transform.position).normalized;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
         rb.velocity = direction * movSpeed;
     }

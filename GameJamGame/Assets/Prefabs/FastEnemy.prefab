@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bd519656d557d4882afd42aed19fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 1
-  currencyWorth: 50
+  hitPoints: 5
+  currencyWorth: 10
 --- !u!95 &5431965847642954271
 Animator:
   serializedVersion: 7

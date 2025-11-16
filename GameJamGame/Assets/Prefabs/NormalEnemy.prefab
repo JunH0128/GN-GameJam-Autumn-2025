@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 3
-  currencyWorth: 50
+  currencyWorth: 15
 --- !u!58 &2875026867614822861
 CircleCollider2D:
   m_ObjectHideFlags: 0
